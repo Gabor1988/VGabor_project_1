@@ -1,0 +1,133 @@
+/* ha több azonos parancs van, akkor az utolsó lesz a sorban az érvényes, ha két width lenne, mondjuk a végén, akkor azt venné be.*/
+
+.container {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 600px; /* ha nincs ennyi hely, akkor csökkenti a blokk szélességét és átrendezi a tartalmat. a kijelző mérethez igazodik a tartalom, erre jó a mx-width megadása. */
+  /*--középre teszi a boxot a left és a right auto paranccsal--*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#email {
+  display: block;
+  width: 100%; /*ha pixelt adok meg, akkor a fő div pixel változását itt is le kell követni, ezért jobb a %, és ez a teljes div méretére teszi*/
+  height: 30px;
+  padding: 3px; /*ezzel az input széleitől ennyi távolságra kerül megjelenítésre benne a szöveg*/
+  border: solid thin #cfcfcf;
+  border-radius: 3px;
+  box-sizing: border-box; /*ezzel hozta egyformára a button és input mezőt, 6 px különbség volt*/
+  margin-bottom: 5px;
+}
+
+button {
+  /*margin-top: 5px;  ugyanaz mint az inputnál csak itt top, egyik kell csak*/
+  display: block;
+  width: 100%;
+  color: white;
+  background: #3cb878;
+  border: none;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.newsletter-box {
+  color: grey;
+  border: solid thin #cfcfcf;
+  border-radius: 3px;
+  padding: 10px;
+  position: relative; /* ez kell ahhoz, hogy az X ehhez viszonyítva helyezkedjen el később, ehhez viszonyítsa annak a pozicíóját */
+}
+
+/*ez csak a newsletterbox-on belüli h3 stílusa lesz*/
+.newsletter-box h3 {
+  margin-top: 0px;
+  /*color: green;*/
+}
+
+#terms {
+  /*position: absolute; /*itt én mondom meg merre legyen, kell a top és a left is hogy hol legyen*/
+  /*top: 2px;*/
+  /*left: 0px;*/
+  position: relative; /* default pozíció a relative, tehát eleve ott volt és attól aponttól szeretnénk vmelyik irányba elmozdítani */
+  top: 2px; /* ezzel a relatívtól fentről 5px távolság */
+  left: 0px; /* ezzel a relatívtól balról 5px távolság */
+}
+
+.closex {
+  position: absolute; /* teljesen új helyre lehet helyezni, azon blokkon belül ahol beraktuk */
+  top: 0px;
+  right: 7px;
+  
+  cursor: pointer; /* ezzel lett az X megnyomható! */
+}
+
+.closex button {
+  background: black;
+  color: red;
+  cursor: pointer;
+}
+
+.questioncircle {
+  color: white;
+  font-size: 70px;
+  background: #3cb878;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* ezzel kör lesz a négyzet */
+  text-align: center;
+  position: fixed; /* fixen oda teszi, ahova megadom. Mindig ott lesz, bármit csinálok! */
+  right: 10px;
+  bottom: 10px;
+}
+
+.card {
+  /*width: 180px;*/ /* ha van width akkor itt nem tudok display-t használni..*/
+  background: #3cb878;
+  text-align: center; /* a képet és a szöveget is középre tette! */
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  box-shadow: 0px 0px 5px 2px grey; /* black a szín, első szám a X tengely jobbra, a második az Y tengely lefelé, a harmadik hátrafelé távolítja és ezzel halványabb lesz ez a harmadik tengely, a 4. szám a kiterjedése */
+  /*flex-grow: 1;*/ /*???*/
+}
+
+/* Ez itt nagyon fontos! */
+.card-holder {
+  display: flex; /*ezzel egymás mellé tette a benne lévő CARD div-eket...*/
+  justify-content: space-between; /*ezzel a benne lévő elemeket szétválasztotta a szabad hely függvényében automatikusan */
+  margin-bottom: 20px;
+  /*justify-content: flex-start;*/ /* balra rendezi egymás mellé egyből az összes elemet.*/
+  /*justify-content: flex-end;*/ /* jobbra rendezi egymás mellé egyből az összes elemet.*/
+  /*justify-content: center;*/ /* középre rendezi egymás mellé egyből az összes elemet.*/
+  /*justify-content: space-around;*/ /* minden eleme köré tesz hézagot és úgy helyezi el, az elején és a végén is van.*/
+  /*align-items: flex-start;*/ /* ezzel a többit a box tetéhez igazodik */
+  /*align-items: flex-end;*/ /* ezzel a többit a box aljára igazodik */
+  align-items: center; /* ezzel a többit a box közepére igazodik */
+  /*flex-direction: column;*/ /* megcseréli az X és Y tengelyt... */
+  /*flex-direction: row-reverse;*/ /* felcseréli az elemek sorrendjét, megfordítja */
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 600px;
+}
+
+/*a newsletterboxon belüli két h3 lett volna ezért a másodiknak kell egy ID, hogy megkülönböztesse, az ID erősebb mint a h3ra írt. Egy ID-ból csak 1 lehet*/
+#second {
+  color: red;
+}
+
+/*ID erősebb a CLASS-nál is!!!*/
+.some {
+  color: yellow;
+}
+
+/* action az ahova küldi az adatot a button */
+
+/*
+h3 {
+  display: inline;
+}
+
+p {
+  display: inline;
+}
+*/
